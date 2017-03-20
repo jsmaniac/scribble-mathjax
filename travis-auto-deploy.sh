@@ -21,7 +21,7 @@ else
   ls -l /home/travis/build/jsmaniac/scribble-mathjax/.git/index.lock || true
 
   # SSH configuration
-  mkdir ~/.ssh
+  mkdir -p ~/.ssh
   chmod 700 ~/.ssh
   set +x
   ls -l /home/travis/build/jsmaniac/scribble-mathjax/.git/index.lock || true
