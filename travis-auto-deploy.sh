@@ -1,11 +1,11 @@
 #!/bin/sh
 set -e
 set -x
-if test "$(git config remote.origin.url)" != "https://github.com/jsmaniac/phc-thesis.git"
+if test "$(git config remote.origin.url)" != "https://github.com/jsmaniac/scribble-mathjax.git"
   echo "Not on official repo, will not deploy gh-pages."
 elif test "$TRAVIS_PULL_REQUEST" != "false"; then
   echo "This is a Pull Request, will not deploy gh-pages."
-elif test "$TRAVIS_BRANCH" = "master"; then
+elif test "$TRAVIS_BRANCH" = "v2.6-racket-mini-source"; then
   echo "Not on master branch, will not deploy gh-pages."
 elif test -z "${encrypted_1b66487e02e5_key:-}" -o -z "${encrypted_1b66487e02e5_iv:-}"; then
   echo "Travis CI secure environment variables are unavailable, will not deploy gh-pages."
@@ -34,5 +34,5 @@ else
   git rm -f Gruntfile.js || true
   git commit -m "auto-commit" &>/dev/null
   git log --oneline --decorate --graph -10
-  git push --force --quiet "https://git@github.com/jsmaniac/scribble-mathjax.git" HEAD:refs/heads/v2.6-racket-mini > /dev/null 2>&1
+  git push --force --quiet "git@github.com:jsmaniac/scribble-mathjax.git" HEAD:refs/heads/v2.6-racket-mini > /dev/null 2>&1
 fi
