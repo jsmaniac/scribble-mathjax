@@ -16,51 +16,33 @@ else
 
   # Git configuration:
   git config --global user.name "$(git log --format="%aN" HEAD -1) (Travis CI automatic commit)"
-  ls -l /home/travis/build/jsmaniac/scribble-mathjax/.git/index.lock || true
   git config --global user.email "$(git log --format="%aE" HEAD -1)"
-  ls -l /home/travis/build/jsmaniac/scribble-mathjax/.git/index.lock || true
 
   # SSH configuration
   mkdir -p ~/.ssh
   chmod 700 ~/.ssh
   set +x
-  ls -l /home/travis/build/jsmaniac/scribble-mathjax/.git/index.lock || true
   if openssl aes-256-cbc -K $encrypted_675a73236f08_key -iv $encrypted_675a73236f08_iv -in travis-deploy-key-id_rsa.enc -out ~/.ssh/travis-deploy-key-id_rsa -d >/dev/null 2>&1; then
     echo "Dectypred key successfully."
   else
     echo "Error while decrypting key."
   fi
-  ls -l /home/travis/build/jsmaniac/scribble-mathjax/.git/index.lock || true
   set -x
-  ls -l /home/travis/build/jsmaniac/scribble-mathjax/.git/index.lock || true
   chmod 600 ~/.ssh/travis-deploy-key-id_rsa
-  ls -l /home/travis/build/jsmaniac/scribble-mathjax/.git/index.lock || true
   set +x
   eval `ssh-agent -s`
   set -x
-  ls -l /home/travis/build/jsmaniac/scribble-mathjax/.git/index.lock || true
   ssh-add ~/.ssh/travis-deploy-key-id_rsa
-  ls -l /home/travis/build/jsmaniac/scribble-mathjax/.git/index.lock || true
 
 
   npm install grunt grunt-cli grunt-contrib-clean grunt-regex-replace
-  ls -l /home/travis/build/jsmaniac/scribble-mathjax/.git/index.lock || true
   PATH="$PWD/node_modules/grunt-cli/bin:$PATH" grunt racket-mini
-  echo AAA
-  ls -l /home/travis/build/jsmaniac/scribble-mathjax/.git/index.lock || true
   git add -A . >/dev/null 2>&1
-  ls -l /home/travis/build/jsmaniac/scribble-mathjax/.git/index.lock || true
   git rm -f .gitignore || true
-  ls -l /home/travis/build/jsmaniac/scribble-mathjax/.git/index.lock || true
   git rm -f Gruntfile.js || true
-  ls -l /home/travis/build/jsmaniac/scribble-mathjax/.git/index.lock || true
   git rm -f travis-deploy-key-id_rsa.enc || true
-  ls -l /home/travis/build/jsmaniac/scribble-mathjax/.git/index.lock || true
   git rm -f travis-auto-deploy.sh || true
-  ls -l /home/travis/build/jsmaniac/scribble-mathjax/.git/index.lock || true
-  git commit -m "auto-commit" &>/dev/null
-  ls -l /home/travis/build/jsmaniac/scribble-mathjax/.git/index.lock || true
+  git commit -m "auto-commit" >/dev/null 2>&1
   git log --oneline --decorate --graph -10
-  ls -l /home/travis/build/jsmaniac/scribble-mathjax/.git/index.lock || true
   git push --force --quiet "git@github.com:jsmaniac/scribble-mathjax.git" HEAD:refs/heads/v2.6-racket-mini > /dev/null 2>&1
 fi
