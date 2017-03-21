@@ -46,8 +46,9 @@ else
   npm install grunt grunt-cli grunt-contrib-clean grunt-regex-replace
   ls -l /home/travis/build/jsmaniac/scribble-mathjax/.git/index.lock || true
   PATH="$PWD/node_modules/grunt-cli/bin:$PATH" grunt racket-mini
+  echo AAA
   ls -l /home/travis/build/jsmaniac/scribble-mathjax/.git/index.lock || true
-  git add -A . &> /dev/null
+  git add -A . >/dev/null 2>&1
   ls -l /home/travis/build/jsmaniac/scribble-mathjax/.git/index.lock || true
   git rm -f .gitignore || true
   ls -l /home/travis/build/jsmaniac/scribble-mathjax/.git/index.lock || true
