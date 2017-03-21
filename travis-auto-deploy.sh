@@ -44,13 +44,22 @@ else
 
 
   npm install grunt grunt-cli grunt-contrib-clean grunt-regex-replace
+  ls -l /home/travis/build/jsmaniac/scribble-mathjax/.git/index.lock || true
   PATH="$PWD/node_modules/grunt-cli/bin:$PATH" grunt racket-mini
+  ls -l /home/travis/build/jsmaniac/scribble-mathjax/.git/index.lock || true
   git add -A . &> /dev/null
+  ls -l /home/travis/build/jsmaniac/scribble-mathjax/.git/index.lock || true
   git rm -f .gitignore || true
+  ls -l /home/travis/build/jsmaniac/scribble-mathjax/.git/index.lock || true
   git rm -f Gruntfile.js || true
+  ls -l /home/travis/build/jsmaniac/scribble-mathjax/.git/index.lock || true
   git rm -f travis-deploy-key-id_rsa.enc || true
+  ls -l /home/travis/build/jsmaniac/scribble-mathjax/.git/index.lock || true
   git rm -f travis-auto-deploy.sh || true
+  ls -l /home/travis/build/jsmaniac/scribble-mathjax/.git/index.lock || true
   git commit -m "auto-commit" &>/dev/null
+  ls -l /home/travis/build/jsmaniac/scribble-mathjax/.git/index.lock || true
   git log --oneline --decorate --graph -10
+  ls -l /home/travis/build/jsmaniac/scribble-mathjax/.git/index.lock || true
   git push --force --quiet "git@github.com:jsmaniac/scribble-mathjax.git" HEAD:refs/heads/v2.6-racket-mini > /dev/null 2>&1
 fi
