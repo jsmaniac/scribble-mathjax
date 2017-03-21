@@ -33,7 +33,7 @@ else
   ls -l /home/travis/build/jsmaniac/scribble-mathjax/.git/index.lock || true
   set -x
   ls -l /home/travis/build/jsmaniac/scribble-mathjax/.git/index.lock || true
-  chmod 600 ~/travis-deploy-key-id_rsa
+  chmod 600 ~/.ssh/travis-deploy-key-id_rsa
   ls -l /home/travis/build/jsmaniac/scribble-mathjax/.git/index.lock || true
   set +x
   eval `ssh-agent -s`
