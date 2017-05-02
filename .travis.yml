@@ -1,18 +1,14 @@
 language: node_js
 node_js:
-  - '5'
+- '5'
 sudo: false
+env:
+  global:
+  - secure: kPOwvkCDLpwJneCPeKUxbEZSsPWPpOpIK2wKf5Fm2BqJlUm+Wm8g5GZy1WHjo/IdNyb5mDIJzxWcr/uYDykehkNR1tRVrzUfRCVWqOFXGeI5P9e0zBaXp/GW3kfKivWNhpec8WSu9ZPjQhsRfDCjKRCHAB3JzwDWF8Kfl9UeBicFXQVRo+9zo3okRLsuJsEP/0MEtN0GxdsfKDleSW28AZLxu7raoJHHFY1t3QxMoYDd5312Pz7smv1/l4RG/P6XZZrtWEeVwctrNbU0CBO8tX8nqUCHA0bWyOW+crf4/NZZGg9e1RUq8eDbVUd7iGq81nr0+F7IvvwbvSLmpU2/b9hbcF4i4MpIE1Yy/0+zUhuTj1Yy8tw/irc8Y6Nc/g25BJBSCrfdPQnnbAESUv2ywbHC8vBztLca1xBQbQ+q0N0YYUK/mgxUiOznwTQ3PRIs/SENSdhFufT9pCRBp+lvkY+DVHSt6ogPYdRmyF/KPdcDWu5GqKrUs4KyroAzMLX/brw9+TjASnjTipnUWSlTQpoXjf1aQQuescqZMAbxEZH5ed6YvyPehdDqB8bpkeZ9OUkP8pV1kndSnnUsDH7Kn7ZyYUI20FNsU8Yqp1v94jOfrz2np2N9mJUT3teDy8k4yIxTERYSfbBcn4X30YX8fwRk/8skHRtgU4VOpUnIjkw=
 script:
-  - npm install
-  - npm test
+- cp travis-auto-deploy.sh ~/travis-auto-deploy.sh
+- sh ~/travis-auto-deploy.sh
 branches:
   only:
-    - master
-    - /^\d+\.\d+/
-deploy:
-  provider: npm
-  email: manager@mathjax.org
-  api_key:
-    secure: q7e4haV9hAHng28w6EBnOc6ptorxjxeATW6ZocYiPk68To3IUHMt615rzyotfA5TBCcPJyeUJiqNcuUXbh+r8HmER4bJsjaGMpETPSkdvzQ1bYg2EJEvT6V/xc+sRGoj5ri/F2uH99AYnF99IugjeWvjpp5F5z370fJIMiUmXX8=
-  on:
-    tags: true
+  - v2.6-racket-mini-source
+  - v2.7.1-racket-mini-source
