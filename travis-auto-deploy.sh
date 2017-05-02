@@ -5,8 +5,8 @@ if test "$(git config remote.origin.url)" != "https://github.com/jsmaniac/scribb
   echo "Not on official repo, will not deploy gh-pages."
 elif test "$TRAVIS_PULL_REQUEST" != "false"; then
   echo "This is a Pull Request, will not deploy gh-pages."
-elif test "$TRAVIS_BRANCH" != "v2.6-racket-mini-source"; then
-  echo "Not on v2.6-racket-mini-source branch (TRAVIS_BRANCH = $TRAVIS_BRANCH), will not deploy gh-pages."
+elif test "$TRAVIS_BRANCH" != "v2.7.1-racket-mini-source"; then
+  echo "Not on v2.7.1-racket-mini-source branch (TRAVIS_BRANCH = $TRAVIS_BRANCH), will not deploy gh-pages."
 elif test -z "${encrypted_675a73236f08_key:-}" -o -z "${encrypted_675a73236f08_iv:-}"; then
   echo "Travis CI secure environment variables are unavailable, will not deploy gh-pages."
 else
@@ -45,5 +45,5 @@ else
   git rm -f travis-auto-deploy.sh || true
   git commit -m "auto-commit" >/dev/null 2>&1
   git log --oneline --decorate --graph -10
-  git push --force --quiet "git@github.com:jsmaniac/scribble-mathjax.git" HEAD:refs/heads/v2.6-racket-mini > /dev/null 2>&1
+  git push --force --quiet "git@github.com:jsmaniac/scribble-mathjax.git" HEAD:refs/heads/v2.7.1-racket-mini > /dev/null 2>&1
 fi
