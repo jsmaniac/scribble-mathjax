@@ -41,7 +41,7 @@ module.exports = function(grunt) {
       // `unpacked` for development
       // ``packed` for production
       unpacked: [
-        "unpacked"
+        "unpacked",
         "latest.js"
       ],
       packed: [
