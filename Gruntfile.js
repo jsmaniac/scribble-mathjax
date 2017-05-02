@@ -42,6 +42,7 @@ module.exports = function(grunt) {
       // ``packed` for production
       unpacked: [
         "unpacked"
+        "latest.js"
       ],
       packed: [
         "config",
@@ -49,7 +50,8 @@ module.exports = function(grunt) {
         "extensions",
         "jax",
         "localization",
-        "MathJax.js"
+        "MathJax.js",
+        "latest.js"
       ],
       // If you don"t need combined configuration files or want to build your own:
       allConfigs: [
