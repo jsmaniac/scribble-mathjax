@@ -11,4 +11,4 @@ script:
 branches:
   only:
   - v2.6-racket-mini-source
-  - v2.7-racket-mini-source
+  - v2.7.1-racket-mini-source
